@@ -1,0 +1,9 @@
+.card{
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 220px;
+    padding: 10px;
+}
+.card-photo{
+    width: 200px;
+}
