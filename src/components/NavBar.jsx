@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
+import About from './About'
+import {Link} from 'react-router-dom'
 
 const NavBar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   return (
     <>
     <div className='header'>
@@ -8,11 +12,12 @@ const NavBar = () => {
         <div className="nav-items">
             <ul>
                 <li>Home</li>
-                <li>About</li>
+                <Link to="/about"><li>About</li></Link>
                 <li>Contact</li>
                 <li>Cart</li>
             </ul>
         </div>
+        {isLoggedIn ? <button onClick={()=>setIsLoggedIn(false)}>Logout</button> : <button onClick={()=>setIsLoggedIn(true)}>Login</button>}
     </div>
     </>
   )
