@@ -14,8 +14,9 @@ const Body = () => {
 
     useEffect(()=>{
       async function fetchApi(){
-        const response = await fetch(" https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6139&lng=77.2090&page_type=DESKTOP_WEB_LISTING")
+        const response = await fetch("https://mocki.io/v1/593331db-4eb9-4237-af13-b7429eae2d45")
         const data = await response.json();
+        console.log(data)
         setRestaurants(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [])
         setAllRestaurants(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [])
       }
