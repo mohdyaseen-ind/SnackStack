@@ -1,14 +1,15 @@
 import React from 'react'
 import './card.css'
+import { IMG_CDN_URL } from './config'
 
-const Card = () => {
+const Card = (props) => {
   return (
     <>
     <div className='card'>
-        <img className='card-photo' src="../public/burger.avif" alt="photo" />
-        <h2>Burger King</h2>
-        <h3>Burgers, American</h3>
-        <h4>4.2 stars</h4>
+        <img className='card-photo' src={IMG_CDN_URL+props.cloudinaryImageId} alt="photo" />
+        <h2>{props.name}</h2>
+        <h3>{props.cuisines[0]}</h3>
+        <h4>{props.avgRating} stars</h4>
     </div>
     </>
   )
