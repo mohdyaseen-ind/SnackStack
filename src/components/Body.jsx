@@ -3,6 +3,7 @@ import Card from './Card'
 import Shimmer from './Shimmer'
 import {Link} from 'react-router-dom'
 import { searchCard } from '../../utils/helper'
+import useOnline from '../../utils/useOnline'
 
 const Body = () => {
     const [inputValue, setInputValue] = useState("")
@@ -18,6 +19,12 @@ const Body = () => {
       }
       fetchApi()
     },[])
+
+    const isOnline = useOnline()
+
+    if(!isOnline){
+      return <h1>🛜 Please Check your Internet Connection</h1>
+    }
 
   return allRestaurants.length==0 ? (<Shimmer />) : (
     <>
