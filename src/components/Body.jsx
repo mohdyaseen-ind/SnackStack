@@ -2,11 +2,7 @@ import React,{useState , useEffect} from 'react'
 import Card from './Card'
 import Shimmer from './Shimmer'
 import {Link} from 'react-router-dom'
-
-function searchCard(inputValue,allRestaurants){
-    const newData = allRestaurants.filter((obj)=>obj?.info?.name?.toLowerCase().includes(inputValue.toLowerCase()))
-    return newData
-}
+import { searchCard } from '../../utils/helper'
 
 const Body = () => {
     const [inputValue, setInputValue] = useState("")
@@ -37,3 +33,5 @@ const Body = () => {
 }
 
 export default Body
+
+
