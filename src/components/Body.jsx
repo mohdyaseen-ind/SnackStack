@@ -28,13 +28,13 @@ const Body = () => {
 
   return allRestaurants.length==0 ? (<Shimmer />) : (
     <>
-    <div className='search-box'>
-        <input type="text" value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
-        <button onClick={()=>setRestaurants(searchCard(inputValue,allRestaurants))}>Search</button>
-    </div>
-    <div style={{display: 'flex',flexWrap: 'wrap'}}>
-        {restaurants.length>0 ? (restaurants.map((obj) => <Link to={"/restaurant/" + obj.info.id} key={obj.info.id}><Card {...obj.info} /></Link>)) : (<h1>No Restaurants Match Your Search</h1>)}
-    </div>
+      <div className='p-5 bg-pink-50 my-2'>
+          <input type="text" value={inputValue} placeholder='Search...' onChange={(e)=>setInputValue(e.target.value)}/>
+          <button onClick={()=>setRestaurants(searchCard(inputValue,allRestaurants))} className='p-2 m-2 bg-purple-700 hover:bg-purple-900 text-white rounded-md'>Search</button>
+      </div>
+      <div className='flex flex-wrap'>
+          {restaurants.length>0 ? (restaurants.map((obj) => <Link to={"/restaurant/" + obj.info.id} key={obj.info.id}><Card {...obj.info} /></Link>)) : (<h1>No Restaurants Match Your Search</h1>)}
+      </div>
     </>
   )
 }

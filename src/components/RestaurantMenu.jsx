@@ -6,7 +6,7 @@ import useRestaurant from '../../utils/useRestaurant'
 
 const RestaurantMenu = () => {
     const params = useParams()
-    const restaurant = useRestaurant(params.resId) 
+    const restaurant = useRestaurant(params.resId) // This hook is to fetch the data using the resId
 
   return (!restaurant) ? <Shimmer /> : (
     <>

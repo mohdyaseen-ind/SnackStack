@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { lazy,Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -9,6 +9,10 @@ import Contact from './components/Contact.jsx'
 import Cart from './components/Cart.jsx'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import RestaurantMenu from './components/RestaurantMenu.jsx'
+import Shimmer from './components/Shimmer.jsx'
+// import Instamart from './components/Instamart.jsx'     // Instead of loading it as soon as the app loads, lets load it when the user clicks the Instamart Button
+const InstaMart = lazy(() => import('./components/Instamart.jsx'))
+
 
 const appRouter = createBrowserRouter([
     {
@@ -35,6 +39,14 @@ const appRouter = createBrowserRouter([
             {
                 path : '/restaurant/:resId',
                 element : <RestaurantMenu />
+            },
+            {
+                path : '/Instamart',
+                element : (
+                <Suspense fallback={<Shimmer/>}>
+                <InstaMart />
+                </Suspense>
+            )
             },
         ]
     },
