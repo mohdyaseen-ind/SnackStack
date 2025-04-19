@@ -1,9 +1,9 @@
-import { lazy,Suspense } from 'react'
+import React,{ lazy,Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Body from './components/Body.jsx'
-import About from './components/About.jsx'
+// import About from './components/About.jsx'
 import Error from './components/Error.jsx'
 import Contact from './components/Contact.jsx'
 import Cart from './components/Cart.jsx'
@@ -12,6 +12,7 @@ import RestaurantMenu from './components/RestaurantMenu.jsx'
 import Shimmer from './components/Shimmer.jsx'
 // import Instamart from './components/Instamart.jsx'     // Instead of loading it as soon as the app loads, lets load it when the user clicks the Instamart Button
 const InstaMart = lazy(() => import('./components/Instamart.jsx'))
+const About = lazy(()=>import('./components/About.jsx')) 
 
 
 const appRouter = createBrowserRouter([
@@ -26,7 +27,10 @@ const appRouter = createBrowserRouter([
             },
             {
                 path : '/about',
-                element : <About />
+                element : 
+                <Suspense fallback={<h1>Loading...</h1>}>
+                <About />
+                </Suspense>
             },
             {
                 path : '/contact',
