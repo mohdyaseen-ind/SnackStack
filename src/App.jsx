@@ -9,7 +9,7 @@ import Checkout from './components/Checkout'; // NEW
 import { auth } from './services/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { getRecentlyViewed } from './utils/localStorage';
-import { CartProvider } from './context/CartContext'; // NEW
+import { CartProvider } from './components/CartContext'; // NEW
 
 const App = () => {
   const [user, setUser] = useState(null);

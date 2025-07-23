@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../services/firebase';
-import { ChefHat, LogOut, Clock, User, ShoppingCart } from 'lucide-react'; // Added ShoppingCart
+import { ChefHat, LogOut, Clock, User, ShoppingCart } from 'lucide-react'; 
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // NEW: Import useCart hook
+import { useCart } from './CartContext'; 
 
 const Header = ({ user, recentlyViewed }) => {
   const [showRecent, setShowRecent] = useState(false);
-  const { totalItemsInCart } = useCart(); // NEW: Get totalItemsInCart from context
+  const { totalItemsInCart } = useCart(); 
 
   const handleSignOut = async () => {
     try {

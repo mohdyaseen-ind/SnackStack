@@ -5,7 +5,7 @@ import { restaurantsData, generateMoreRestaurants } from '../data/restaurants';
 import { addToRecentlyViewed } from '../utils/localStorage';
 import Reviews from './Reviews';
 import Map from './Map';
-import { useCart } from '../context/CartContext'; // NEW: Import useCart hook
+import { useCart } from './CartContext'; // NEW: Import useCart hook
 
 const RestaurantDetail = ({ onView }) => {
   const { id } = useParams();
