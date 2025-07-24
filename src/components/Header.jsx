@@ -27,7 +27,6 @@ const Header = ({ user, recentlyViewed }) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            {/* Cart Icon */}
             <Link to="/cart" className="relative flex items-center text-gray-700 hover:text-orange-600 transition duration-200">
               <ShoppingCart className="w-5 h-5" />
               <span className="ml-1 hidden sm:inline">Cart</span>
@@ -38,7 +37,6 @@ const Header = ({ user, recentlyViewed }) => {
               )}
             </Link>
 
-            {/* Recently Viewed */}
             <div className="relative">
               <button
                 onClick={() => setShowRecent(!showRecent)}
@@ -72,7 +70,6 @@ const Header = ({ user, recentlyViewed }) => {
               )}
             </div>
 
-            {/* User Info & Sign Out */}
             <div className="flex items-center">
               <User className="w-5 h-5 text-gray-700 mr-2" />
               <span className="text-gray-700 mr-4 hidden sm:inline">

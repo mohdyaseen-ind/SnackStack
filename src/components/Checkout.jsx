@@ -6,17 +6,11 @@ import { CheckCircle, ArrowLeft } from 'lucide-react';
 const Checkout = () => {
   const { cartItems, cartTotal, clearCart } = useCart();
 
-  // Optionally clear cart after a "successful" checkout
-  // For a real app, this would happen after payment confirmation
   useEffect(() => {
-    // This is a simple example; in a real app, clearCart would be called
-    // after a successful order submission and API confirmation.
-    // For now, let's simulate it upon landing on this page
-    // if cart is not empty, implying a "successful" checkout attempt.
     if (cartItems.length > 0) {
-        // clearCart(); // Uncomment this line if you want to clear the cart immediately upon reaching checkout
+        clearCart();
     }
-  }, []); // Only runs once on mount
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -52,7 +46,6 @@ const Checkout = () => {
 
         <Link
           to="/"
-          onClick={clearCart} // Clear cart when user goes back to home from checkout
           className="inline-block bg-orange-600 text-white px-8 py-4 rounded-lg hover:bg-orange-700 transition duration-200 text-lg font-semibold"
         >
           Back to Home
